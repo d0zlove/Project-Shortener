@@ -1,7 +1,7 @@
 import ctypes
 
 # Загрузка библиотеки C++
-dll = ctypes.cdll.LoadLibrary("C:/Users/Админ/Desktop/ProjectShorter/x64/Debug/ProjectShorter.dll")
+dll = ctypes.cdll.LoadLibrary("./ProjectShorter.dll")
 
 def url(longURl):
     # Определение типа возвращаемого значения для функции библиотеки C++ (const char*)
