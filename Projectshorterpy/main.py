@@ -35,6 +35,11 @@ def result():
     
     return render_template('index.html', processed_value=processed_value,user_value=user_value)
 
+@app.route('/favicon.ico')
+def favicon():
+    return app.send_static_file('favicon.ico')
+
+
 from flask import Flask, redirect
 @app.route('/<short_id>', methods=['GET'])
 def redirect_url(short_id):

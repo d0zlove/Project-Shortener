@@ -78,6 +78,9 @@ extern "C" {
 			std::cerr << "Ошибка при выполнении запроса: " << zErrMsg << std::endl;
 			sqlite3_free(zErrMsg);
 		}
+		else {
+			std::cerr << "Данные успешно найдены." << std::endl;
+		}
 
 		// Закрываем соединение с базой данных
 		sqlite3_close(db);
@@ -131,25 +134,20 @@ extern "C" {
 		const char* link = const_cast<char*>("http://127.0.0.1:5000/");//основная строка
 		const char* ID = const_cast<char*>(short_id.c_str()); //дополнительная строка
 
-		size_t lenA = std::strlen(link);// длина строки с ссылкой 
-		size_t lenB = std::strlen(ID);// длина строки с айди
-		size_t lenС = std::strlen(userURL);// длина строки с юзерским юрлом
+		size_t URLlen = std::strlen(link);// длина строки с ссылкой 
+		size_t IDlen = std::strlen(ID);// длина строки с айди
+		size_t USERURLlen = std::strlen(userURL);// длина строки с юзерским юрлом
 
+		char* shortURL = new char[URLlen + IDlen + 1]; // память под новую строку
+		strcpy_s(shortURL, URLlen + 1, link); // копируем первую строку
+		strcpy_s(shortURL + URLlen, IDlen + 1, ID); // добавляем вторую строку без пробела в конец
 
-		char* shortURL = new char[lenA + lenB + 1]; // память под новую строку
-		strcpy_s(shortURL, lenA + 1, link); // копируем первую строку
-		strcpy_s(shortURL + lenA, lenB + 1, ID); // добавляем вторую строку без пробела в конец
-
-		char* IDresult = new char[lenB + 1]; // память под ID
-		strcpy_s(IDresult, lenB + 1, ID);// копиируем ID
-
-		char* URLresult = new char[lenС + 1]; // память под ID
-		strcpy_s(URLresult, lenС + 1, userURL);// копиируем ID
+		char* URLresult = new char[USERURLlen + 1]; // память строку с юзерским юрлом
+		strcpy_s(URLresult, USERURLlen + 1, userURL);// копиируем юзерский юрл
 
 		const char* dbName = "database.db";
-		createDatabase(dbName);
+		createDatabase(dbName);//закоментировать перед продом
 		addData(dbName, shortURL, longURl);
-		std::cerr << "Данные найдены: " << getDataFromDatabase(shortURL) << std::endl;
 
 		/*
 		const char* data = getData(dbName, "key1");
