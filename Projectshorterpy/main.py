@@ -37,7 +37,7 @@ def result():
 
 @app.route('/favicon.ico')
 def favicon():
-    return app.send_static_file('favicon.ico')
+    return app.send_static_file('prjgpwejg.png')
 
 
 from flask import Flask, redirect
@@ -47,10 +47,10 @@ def redirect_url(short_id):
     dll.getDataFromDatabase.restype = ctypes.c_char_p
     
     # Вызов функции из библиотеки C++ и получение результата в Python
-    short_url_bytes = dll.getDataFromDatabase(("http://127.0.0.1:5000/" + short_id).encode())
-    short_url_str = short_url_bytes.decode("utf-8")
+    redirectable_url_bytes = dll.getDataFromDatabase(("http://127.0.0.1:5000/" + short_id).encode())
+    redirectable_url_str = redirectable_url_bytes.decode("utf-8")
     
-    return redirect(short_url_str, code=302)
+    return redirect(redirectable_url_str, code=302)
 
 if __name__ == '__main__':
     app.run()
