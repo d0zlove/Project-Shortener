@@ -108,6 +108,10 @@ def result(request: Request, value: str = Form(...)):
 #def favicon():
     #return app.send_static_file('prjgpwejg.png')
 
+@app.get('/')
+async def redirect_to_page():
+    return RedirectResponse(url="/pages/base")
+
 @app.get("/favicon.ico")
 async def favicon():
     return RedirectResponse(url="static/prjgpwejg.png")
