@@ -1,9 +1,0 @@
-﻿  main.cpp
-  sqliteFuncs.cpp
-     Создается библиотека C:\Users\Админ\Desktop\ProjectShorter\x64\Release\ProjectShorter.lib и объект C:\Users\Админ\Desktop\ProjectShorter\x64\Release\ProjectShorter.exp
-  Создание кода
-  36 of 2908 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    72 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  ProjectShorter.vcxproj -> C:\Users\Админ\Desktop\ProjectShorter\x64\Release\ProjectShorter.dll
