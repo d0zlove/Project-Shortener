@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\Админ\Desktop\ProjectShorter\ProjectShorter\Source.cpp(123,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     Создается библиотека C:\Users\Админ\Desktop\ProjectShorter\x64\Debug\ProjectShorter.lib и объект C:\Users\Админ\Desktop\ProjectShorter\x64\Debug\ProjectShorter.exp
+  ProjectShorter.vcxproj -> C:\Users\Админ\Desktop\ProjectShorter\x64\Debug\ProjectShorter.dll
